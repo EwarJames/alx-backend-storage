@@ -10,8 +10,8 @@ from functools import wraps
 def replay(method: Callable):
     """Does the replay"""
     key = method.__qualname__
-    i = "".join([key,":input"])
-    o = "".join([key, ":input"])
+    i = "".join([key,":inputs"])
+    o = "".join([key, ":outputs"])
     count = method.__self__.get(key)
     i_list = method.__self__._redis.lrange(i, 0, -1)
     o_list = method.__self__._redis.lrange(o, 0, -1)
