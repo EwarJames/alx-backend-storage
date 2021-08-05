@@ -24,6 +24,7 @@ def count_calls(method: Callable) -> Collable:
     return wrapper
 
 
+@count_calls
 def get_page(url: str) -> str:
     """Gets the page"""
     req = requests.get(url)
