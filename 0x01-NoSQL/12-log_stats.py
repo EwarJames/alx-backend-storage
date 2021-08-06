@@ -15,7 +15,7 @@ def log_stats():
     delete = stat.count_documents({"method": "DELETE"})
     path = stat.count_documents({"method": "GET", "path": "/status"})
     print(f"{all_logs} logs")
-    print("Methods")
+    print("Methods:")
     print(f"\tmethod GET: {get}")
     print(f"\tmethod POST: {post}")
     print(f"\tmethod PUT: {put}")
