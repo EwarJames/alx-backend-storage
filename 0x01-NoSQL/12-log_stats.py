@@ -24,5 +24,6 @@ def log_stats():
     print(f"\tmethod DELETE: {delete}")
     print(f"{path} status check")
 
+
 if __name__ == "__main__":
     log_stats()
