@@ -1,5 +1,6 @@
 #!usr/bin/env python3
-""""Python Module for using pymongo"""
+"""Python Module for using pymong"""
+import pymongo
 
 
 def list_all(mongo_collection):
