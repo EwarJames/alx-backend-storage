@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Python module that provides stats on logs"""
-from pymongo import
+from pymongo import MongoClient
 
 
 client = MongoClient()
