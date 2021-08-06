@@ -9,10 +9,10 @@ def log_stats():
     logs_list = client.logs.nginx
     all_logs = logs_list.count_documents({})
     get = logs_list.count_documents({"method": "GET"})
-    post = logs_list.count_documents("method": "POST")
-    delete = logs_list.count_documents("method": "DELETE")
-    put = logs_list.count_documents("method": "PUT")
-    patch = logs_list.count_documents("method": "PATCH")
+    post = logs_list.count_documents({"method": "POST"})
+    delete = logs_list.count_documents({"method": "DELETE"})
+    put = logs_list.count_documents({"method": "PUT"})
+    patch = logs_list.count_documents({"method": "PATCH"})
     path = logs_list.count_documents({
         "method": "GET", "path": "/status"})
     print(f"{all_logs} logs")
