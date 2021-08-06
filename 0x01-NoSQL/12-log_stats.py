@@ -1,20 +1,21 @@
 #!/usr/bin/env python3
 """Python module that provides stats on logs"""
-from pymongo import MongoClient
+from pymongo import
 
 
-def log_stats():
-    """"Provides some stats about Ngnix logs stored in Mongodb"""
-    client = MongoClient("mongodb://127.0.0.1:27017")
-    logs_list = client.logs.nginx
-    all_logs = logs_list.count_documents({})
-    get = logs_list.count_documents({"method": "GET"})
-    post = logs_list.count_documents({"method": "POST"})
-    delete = logs_list.count_documents({"method": "DELETE"})
-    put = logs_list.count_documents({"method": "PUT"})
-    patch = logs_list.count_documents({"method": "PATCH"})
-    path = logs_list.count_documents({
-        "method": "GET", "path": "/status"})
+client = MongoClient()
+stat = client.logs.nginx
+
+all_logs = stat.count_documents({})
+get = stat.count_documents({"method": "GET"})
+post = stat.count_documents({"method": "POST"})
+delete = stat.count_documents({"method": "DELETE"})
+put = stat.count_documents({"method": "PUT"})
+patch = stat.count_documents({"method": "PATCH"})
+path = stat.count_documents({"method": "GET", "path": "/status"})
+
+
+if __name__ == "__main__":
     print(f"{all_logs} logs")
     print("Methods")
     print(f"\tmethod GET: {get}")
@@ -23,7 +24,3 @@ def log_stats():
     print(f"\tmethod PATCH: {patch}")
     print(f"\tmethod DELETE: {delete}")
     print(f"{path} status check")
-
-
-if __name__ == "__main__":
-    log_stats()
